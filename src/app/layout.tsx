@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import NavBar from "@/components/NavBar";
+import ScrollYProgress from "@/components/ui/ScrollYProgress";
 import "./globals.css";
 
 const spaceGortesk = Space_Grotesk({
@@ -22,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${spaceGortesk.variable} antialiased `}>
+        <ScrollYProgress />
         <NavBar />
         {children}
       </body>

@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 export default function DecorativeSpinner() {
   return (
     <motion.svg
+      suppressHydrationWarning
       width="400"
       height="400"
       viewBox="0 0 400 400"
@@ -45,6 +46,7 @@ export default function DecorativeSpinner() {
         const y = 200 + 140 * Math.sin(angle);
         return (
           <motion.path
+            suppressHydrationWarning
             key={i}
             d={`M ${x} ${y - 8} L ${x + 2.5} ${y - 2} L ${x + 8} ${y} L ${
               x + 2.5
