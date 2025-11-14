@@ -182,7 +182,12 @@ export default function HeroSection() {
         className="absolute bottom-5 left-1/2 -translate-x-1/2 cursor-pointer"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        onClick={() => {}}
+        onClick={() => {
+          window.scroll({
+            top: 100,
+            behavior: "smooth",
+          });
+        }}
       >
         <ArrowDown className="w-6 h-6 text-gray-500" />
       </motion.div>
