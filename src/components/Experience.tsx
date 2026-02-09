@@ -37,10 +37,10 @@ const experience: ExperienceItem[] = [
 
 const Experience = () => {
   return (
-    <section className="mx-auto py-8  lg:py-20">
+    <section className="mx-auto py-8  lg:py-20" id="experience">
       <div className="flex flex-col gap-10">
         <div className="flex items-center flex-col gap-4">
-          <h2 className="gradient-text">My Journey</h2>
+          <h2 className="gradient-text text-2xl font-bold">My Journey</h2>
 
           <p className="text-gray-400">
             Follow my professional story through the companies that shaped my

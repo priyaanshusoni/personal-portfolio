@@ -1,20 +1,27 @@
 "use client";
 
-import {CONTACT_INFO} from "@/lib/constants";
+import { CONTACT_INFO } from "@/lib/constants";
 import { motion } from "motion/react";
-
-
+import { Form, Input, Button } from "antd";
+import { FORM_ITEMS } from "@/lib/constants";
+import { Send } from "lucide-react";
 
 export const GetInTouch = () => {
+  const [formInstance] = Form.useForm();
+  const handleSubmit = (values: any) => {
+    console.log("Form Values:", values);
+    // Here you can implement the logic to send the form data to your backend or an email service.
+  };
+
   return (
-    <div className="py-10 flex flex-col items-center gap-4">
-      <h2 className="gradient-text">Get In Touch</h2>
+    <div className="py-10 flex flex-col items-center gap-4" id="contact">
+      <h2 className="gradient-text text-2xl font-bold">Get In Touch</h2>
 
       <p className="text-gray-400">
         Have a project in mind or just want to chat? Feel free to reach out!
       </p>
 
-      <div className="mt-5 flex justify-between flex-wrap">
+      <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-10 ">
         <div className="flex flex-col gap-4 items-start">
           <h3 className="text-white text-2xl font-bold">
             Let&apos;s talk about everything!
@@ -25,11 +32,11 @@ export const GetInTouch = () => {
             creative ideas, or opportunities to be part of your vision.
           </p>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 w-11/12">
             {Object.entries(CONTACT_INFO).map(([key, value], index) => (
               <a
                 key={key}
-                className="p-5 glass rounded-2xl  group relative overflow-hidden cursor-pointer"
+                className="p-5 glass rounded-2xl  group relative overflow-hidden cursor-pointer w-full "
                 href={value?.method}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -66,7 +73,85 @@ export const GetInTouch = () => {
 
         {/* Form Container */}
 
-        <div></div>
+        <div>
+          <Form
+            requiredMark={false}
+            layout="vertical"
+            form={formInstance}
+            onFinish={handleSubmit}
+          >
+            {FORM_ITEMS?.map((item, index) => {
+              if (item?.nodeType === "input") {
+                return (
+                  <Form.Item
+                    key={index}
+                    name={item?.name}
+                    label={item?.label}
+                    rules={item?.rules}
+                  >
+                    <Input
+                      placeholder={item?.placeholder}
+                      className="glass !w-full !px-4 !py-3 !bg-white/5 !border !border-white/10 !rounded-xl !text-white !placeholder-gray-500 !focus:outline-none !focus:border-cyan-500 !transition-colors"
+                    />
+                  </Form.Item>
+                );
+              } else if (item?.nodeType === "textarea") {
+                return (
+                  <Form.Item
+                    key={index}
+                    name={item?.name}
+                    label={item?.label}
+                    rules={item?.rules}
+                  >
+                    <Input.TextArea
+                      maxLength={100}
+                      showCount
+                      placeholder={item?.placeholder}
+                      className="glass !w-full !px-4 !py-3 !bg-white/5 !border !border-white/10 !rounded-xl !text-white !placeholder-gray-500 !focus:outline-none !focus:border-cyan-500 !transition-colors"
+                      rows={4}
+                    />
+                  </Form.Item>
+                );
+              } else
+                return (
+                  <Form.Item
+                    key={index}
+                    name={item?.name}
+                    label={item?.label}
+                    rules={item?.rules}
+                  >
+                    <Input
+                      placeholder={item?.placeholder}
+                      className="glass !w-full !px-4 !py-3 !bg-white/5 !border !border-white/10 !rounded-xl !text-white !placeholder-gray-500 !focus:outline-none !focus:border-cyan-500 !transition-colors"
+                    />
+                  </Form.Item>
+                );
+            })}
+
+            <Form.Item>
+              <Button
+                className="primary-btn"
+                htmlType="submit"
+                aria-label="submit"
+                type="primary"
+              >
+                Send Message
+                <motion.span
+                  className="relative z-10"
+                  animate={{
+                    x: [0, 5, 0],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                  }}
+                >
+                  <Send className="w-4 h-4" />
+                </motion.span>
+              </Button>
+            </Form.Item>
+          </Form>
+        </div>
       </div>
     </div>
   );

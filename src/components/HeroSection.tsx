@@ -1,18 +1,25 @@
 "use client";
 
-import { motion , Variants } from "motion/react";
-import { ArrowDown, Github, Instagram, Linkedin, Mail, Twitter } from "lucide-react";;
+import { motion, Variants } from "motion/react";
+import {
+  ArrowDown,
+  Github,
+  Instagram,
+  Linkedin,
+  Mail,
+  Twitter,
+} from "lucide-react";
 import dynamic from "next/dynamic";
 import AudioPlayer from "@/components/ui/AudioPlayer";
 const FloatingParticles = dynamic(
   () => import("@/components/ui/FloatingParticles"),
   {
     ssr: false,
-  }
+  },
 );
 
 const DecorativeSpinner = dynamic(
-  () => import("@/components/ui/DecorativeSpinner")
+  () => import("@/components/ui/DecorativeSpinner"),
 );
 export default function HeroSection() {
   const containerVariants: Variants = {
@@ -51,11 +58,18 @@ export default function HeroSection() {
     },
     { Icon: Twitter, href: "https://x.com/priyanshusept27", label: "Twitter" },
     { Icon: Mail, href: "mailto:priyanshusoni.dev@gmail.com", label: "Email" },
-    {Icon : Instagram, href: "https://www.instagram.com/priyanshusept27/", label: "Instagram"}
+    {
+      Icon: Instagram,
+      href: "https://www.instagram.com/priyanshusept27/",
+      label: "Instagram",
+    },
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative  pt-20  w-full overflow-hidden  ">
+    <section
+      className="min-h-screen flex items-center justify-center relative  pt-20  w-full overflow-hidden  "
+      id="about"
+    >
       {/* Floating particles */}
       <FloatingParticles />
 

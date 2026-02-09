@@ -70,7 +70,10 @@ const Footer = () => {
           </p>
         </motion.div>
 
-        <p className="text-gray-500">© 2025 All rights reserved.</p>
+        <p className="text-gray-500">
+          © {new Date().getFullYear()} All rights reserved. just kidding , feel
+          free to take insipiration 🚀
+        </p>
       </div>
     </div>
   );

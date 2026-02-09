@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import NavBar from "@/components/NavBar";
 import ScrollYProgress from "@/components/ui/ScrollYProgress";
-import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+import ConfigProviderWrapper from "@/components/ConfigProvider";
 import "./globals.css";
 
 const spaceGortesk = Space_Grotesk({
@@ -27,7 +28,7 @@ export default function RootLayout({
         <ScrollYProgress />
         <NavBar />
         <AntdRegistry>
-        {children}
+          <ConfigProviderWrapper>{children}</ConfigProviderWrapper>
         </AntdRegistry>
       </body>
     </html>
