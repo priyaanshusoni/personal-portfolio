@@ -1,8 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
-import { ArrowDown, Github, Linkedin, Mail, Twitter } from "lucide-react";
-import Container from "./Container";
+import { motion , Variants } from "motion/react";
+import { ArrowDown, Github, Instagram, Linkedin, Mail, Twitter } from "lucide-react";;
 import dynamic from "next/dynamic";
 import AudioPlayer from "@/components/ui/AudioPlayer";
 const FloatingParticles = dynamic(
@@ -16,7 +15,7 @@ const DecorativeSpinner = dynamic(
   () => import("@/components/ui/DecorativeSpinner")
 );
 export default function HeroSection() {
-  const containerVariants: any = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -27,7 +26,7 @@ export default function HeroSection() {
     },
   };
 
-  const itemVariants: any = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -52,6 +51,7 @@ export default function HeroSection() {
     },
     { Icon: Twitter, href: "https://x.com/priyanshusept27", label: "Twitter" },
     { Icon: Mail, href: "mailto:priyanshusoni.dev@gmail.com", label: "Email" },
+    {Icon : Instagram, href: "https://www.instagram.com/priyanshusept27/", label: "Instagram"}
   ];
 
   return (
@@ -68,7 +68,7 @@ export default function HeroSection() {
         >
           <motion.div variants={itemVariants} className="mb-8">
             <span className="text-cyan-400 tracking-wider text-xl">
-              Namaste , I'm
+              Namaste , I&apos;m
             </span>
           </motion.div>
 
@@ -192,7 +192,7 @@ export default function HeroSection() {
         <ArrowDown className="w-6 h-6 text-gray-500" />
       </motion.div>
 
-      <AudioPlayer />
+      {/* <AudioPlayer /> */}
     </section>
   );
 }
