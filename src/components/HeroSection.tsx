@@ -10,7 +10,7 @@ import {
   Twitter,
 } from "lucide-react";
 import dynamic from "next/dynamic";
-import AudioPlayer from "@/components/ui/AudioPlayer";
+// import AudioPlayer from "@/components/ui/AudioPlayer";
 const FloatingParticles = dynamic(
   () => import("@/components/ui/FloatingParticles"),
   {

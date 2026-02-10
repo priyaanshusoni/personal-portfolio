@@ -5,7 +5,7 @@ import { PROJECTS } from "@/lib/constants";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { Github, ExternalLink } from "lucide-react";
-import StackIcon from "tech-stack-icons";
+// import StackIcon from "tech-stack-icons";
 
 const Projects = () => {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { HamburgerMenuIcon } from "../../public/svgs/navbar";
 

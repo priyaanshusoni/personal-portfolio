@@ -15,7 +15,7 @@ export interface PROJECT_PROPS {
   link?: string;
   repoLink?: string;
   technologies: {
-    icon?: any;
+    icon?: string;
     label: string;
   }[];
 }

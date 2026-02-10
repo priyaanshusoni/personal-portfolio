@@ -1,6 +1,6 @@
-import { icons, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { CONTACT_FORM_TYPE, PROJECT_PROPS } from "./types";
-import StackIcon from "tech-stack-icons";
+
 export const CONTACT_INFO = {
   email: {
     icon: Mail,

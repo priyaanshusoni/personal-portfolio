@@ -8,7 +8,7 @@ import { Send } from "lucide-react";
 
 export const GetInTouch = () => {
   const [formInstance] = Form.useForm();
-  const handleSubmit = (values: any) => {
+  const handleSubmit = (values: object) => {
     console.log("Form Values:", values);
     // Here you can implement the logic to send the form data to your backend or an email service.
   };

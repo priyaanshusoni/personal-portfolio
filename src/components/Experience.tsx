@@ -11,29 +11,29 @@ interface ExperienceItem {
   location: string;
 }
 
-const experience: ExperienceItem[] = [
-  {
-    company: "CreateBytes Pvt. Ltd.",
-    position: "Software Development Engineer - 1 ",
-    duration: "2025 - Present",
-    location: "Gurugram , India",
-    description: "Leading development of cutting-edge web applications",
-    points: [
-      "Architected and developed scalable microservices using Node.js and React",
-      "Improved application performance by 60% through code optimization",
-      "Implemented CI/CD pipelines reducing deployment time by 40%",
-    ],
-    tech: [
-      "React.js",
-      "Node.js",
-      "TypeScript",
-      "Docker",
-      "Framer Motion",
-      "GSAP",
-    ],
-    logo: "/assets/experience/cb-logo.svg",
-  },
-];
+// const experience: ExperienceItem[] = [
+//   {
+//     company: "CreateBytes Pvt. Ltd.",
+//     position: "Software Development Engineer - 1 ",
+//     duration: "2025 - Present",
+//     location: "Gurugram , India",
+//     description: "Leading development of cutting-edge web applications",
+//     points: [
+//       "Architected and developed scalable microservices using Node.js and React",
+//       "Improved application performance by 60% through code optimization",
+//       "Implemented CI/CD pipelines reducing deployment time by 40%",
+//     ],
+//     tech: [
+//       "React.js",
+//       "Node.js",
+//       "TypeScript",
+//       "Docker",
+//       "Framer Motion",
+//       "GSAP",
+//     ],
+//     logo: "/assets/experience/cb-logo.svg",
+//   },
+// ];
 
 const Experience = () => {
   return (

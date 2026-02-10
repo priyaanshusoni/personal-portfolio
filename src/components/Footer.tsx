@@ -1,6 +1,6 @@
 "use client";
-import { Heart, Github, Linkedin, Twitter, Mail, icons } from "lucide-react";
-import { motion, scale } from "motion/react";
+import { Heart, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { motion } from "motion/react";
 const Footer = () => {
   const socialLinks = [
     {
