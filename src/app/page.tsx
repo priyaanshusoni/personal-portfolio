@@ -1,6 +1,6 @@
 import React from "react";
 import HeroSection from "@/components/HeroSection";
-import Experience from "@/components/Experience";
+
 import Footer from "@/components/Footer";
 import { GetInTouch } from "@/components/GetInTouch";
 import Container from "@/components/Container";
@@ -10,7 +10,6 @@ const Home = () => {
     <div>
       <Container>
         <HeroSection />
-        <Experience />
         <Projects />
         <GetInTouch />
         <Footer />

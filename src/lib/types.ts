@@ -19,3 +19,14 @@ export interface PROJECT_PROPS {
     label: string;
   }[];
 }
+
+export interface EXPERIENCE_PROPS {
+  company: string;
+  position: string;
+  duration: string;
+  description: string;
+  points: string[];
+  tech: string[];
+  logo: string;
+  location: string;
+}

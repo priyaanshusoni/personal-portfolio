@@ -1,15 +1,14 @@
 "use client";
 
-import { motion, Variants } from "motion/react";
-import {
-  ArrowDown,
-  Github,
-  Instagram,
-  Linkedin,
-  Mail,
-  Twitter,
-} from "lucide-react";
+import { motion, Variants, AnimatePresence } from "motion/react";
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import { ArrowDown } from "lucide-react";
+import XIcon from "../../public/assets/socials/x.webp";
+import LinkedInIcon from "../../public/assets/socials/linkedin.webp";
+import GitHubIcon from "../../public/assets/socials/github.webp";
+import YouTubeIcon from "../../public/assets/socials/youtube.webp";
+import Image from "next/image";
 // import AudioPlayer from "@/components/ui/AudioPlayer";
 const FloatingParticles = dynamic(
   () => import("@/components/ui/FloatingParticles"),
@@ -22,6 +21,7 @@ const DecorativeSpinner = dynamic(
   () => import("@/components/ui/DecorativeSpinner"),
 );
 export default function HeroSection() {
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -47,23 +47,42 @@ export default function HeroSection() {
 
   const socialLinks = [
     {
-      Icon: Github,
       href: "https://github.com/priyaanshusoni",
       label: "GitHub",
+      src: GitHubIcon,
     },
     {
-      Icon: Linkedin,
       href: "https://www.linkedin.com/in/priyanshu-soni-s27092003/",
       label: "LinkedIn",
+      src: LinkedInIcon,
     },
-    { Icon: Twitter, href: "https://x.com/priyanshusept27", label: "Twitter" },
-    { Icon: Mail, href: "mailto:priyanshusoni.dev@gmail.com", label: "Email" },
     {
-      Icon: Instagram,
-      href: "https://www.instagram.com/priyanshusept27/",
-      label: "Instagram",
+      href: "https://x.com/priyanshusept27",
+      label: "Twitter",
+      src: XIcon,
+    },
+
+    {
+      src: YouTubeIcon,
+      href: "https://www.youtube.com/@priyanshusoni9/videos",
+      label: "YouTube",
     },
   ];
+
+  const titles = [
+    "Software Engineer",
+    "Full Stack Developer",
+    "Backend Developer",
+    "System Design Architect",
+    "Educator",
+  ];
+
+  useEffect(() => {
+    let interval = setInterval(() => {
+      setCurrentTitleIndex((prevIndex) => (prevIndex + 1) % titles.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section
@@ -104,10 +123,19 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="mb-8">
-            <h2 className="text-gray-300 tracking-wide">
-              Software Engineer • Full Stack Developer
-            </h2>
+          <motion.div variants={itemVariants} className="mb-8 relative h-8">
+            <AnimatePresence mode="wait">
+              <motion.h2
+                key={currentTitleIndex}
+                className="text-gray-300 tracking-wide"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                exit={{ opacity: 0, y: -20 }}
+              >
+                {titles[currentTitleIndex]}
+              </motion.h2>
+            </AnimatePresence>
           </motion.div>
 
           <motion.p
@@ -122,19 +150,16 @@ export default function HeroSection() {
 
           <motion.div
             variants={itemVariants}
-            className="flex items-center justify-center gap-6 mb-12"
+            className="flex items-center justify-center  gap-6 md:gap-8 lg:gap-12 mb-12"
           >
-            {socialLinks.map(({ Icon, href, label }, index) => (
+            {socialLinks.map(({ href, label, src }, index) => (
               <motion.a
                 key={label}
                 href={href}
                 target="_blank"
                 aria-label={label}
-                className="glass p-3 rounded-full text-gray-400 hover:text-white transition-colors relative"
                 whileHover={{
                   scale: 1.2,
-                  rotate: 360,
-                  boxShadow: "0 0 20px rgba(6, 182, 212, 0.5)",
                 }}
                 whileTap={{ scale: 0.9 }}
                 animate={{
@@ -148,7 +173,18 @@ export default function HeroSection() {
                   },
                 }}
               >
-                <Icon className="w-5 h-5" />
+                {/* <Icon className="w-5 h-5" /> */}
+                <div className="relative size-10 shrink-0 rounded-xl overflow-hidden  border-2 border-[#3c4042] ">
+                  <Image
+                    src={src}
+                    alt={label}
+                    width={48}
+                    height={48}
+                    className="select-none "
+                    style={{ color: "transparent" }}
+                    unoptimized
+                  />
+                </div>
               </motion.a>
             ))}
           </motion.div>

@@ -4,14 +4,15 @@ import React from "react";
 // import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { HamburgerMenuIcon } from "../../public/svgs/navbar";
+import Link from "next/link";
 
 const NavBar = () => {
   const navItems = [
-    { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
-    { name: "Projects", href: "#projects" },
-    { name: "Blogs", href: "#blogs" },
-    { name: "Contact", href: "#contact" },
+    { name: "About", href: "/#about" },
+    { name: "Experience", href: "/experience" },
+    { name: "Projects", href: "/#projects" },
+    { name: "Blogs", href: "/blogs" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   const underLineVariants = {
@@ -33,9 +34,8 @@ const NavBar = () => {
       >
         <motion.div className="flex justify-between items-center gap-4 md:gap-8  ">
           {navItems.slice(0, 2).map((item, index) => (
-            <motion.a
+            <motion.div
               key={item.name}
-              href={item.href}
               className="text-gray-300 hover:text-white transition-colors relative group"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -43,13 +43,15 @@ const NavBar = () => {
               variants={underLineVariants}
               whileHover="hover"
             >
-              {item.name}
-              <motion.span
-                className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500"
-                transition={{ duration: 0.3 }}
-                variants={underLineVariants}
-              />
-            </motion.a>
+              <Link href={item.href}>
+                {item.name}
+                <motion.span
+                  className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500"
+                  transition={{ duration: 0.3 }}
+                  variants={underLineVariants}
+                />
+              </Link>
+            </motion.div>
           ))}
 
           <motion.div
@@ -68,23 +70,24 @@ const NavBar = () => {
           </motion.div>
 
           {navItems.slice(2).map((item, index) => (
-            <motion.a
+            <motion.div
               key={item.name}
-              href={item.href}
               className="text-gray-300 hover:text-white transition-colors relative group"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: (index + 2) * 0.1 }}
+              transition={{ delay: index * 0.1 }}
               variants={underLineVariants}
               whileHover="hover"
             >
-              {item.name}
-              <motion.span
-                className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500"
-                variants={underLineVariants}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.a>
+              <Link href={item.href}>
+                {item.name}
+                <motion.span
+                  className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500"
+                  transition={{ duration: 0.3 }}
+                  variants={underLineVariants}
+                />
+              </Link>
+            </motion.div>
           ))}
         </motion.div>
       </motion.nav>

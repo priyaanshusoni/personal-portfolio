@@ -2,15 +2,25 @@
 
 import { CONTACT_INFO } from "@/lib/constants";
 import { motion } from "motion/react";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, message } from "antd";
 import { FORM_ITEMS } from "@/lib/constants";
 import { Send } from "lucide-react";
 
+import { useState } from "react";
 export const GetInTouch = () => {
+  const [loading, setLoading] = useState(false);
   const [formInstance] = Form.useForm();
   const handleSubmit = (values: object) => {
-    console.log("Form Values:", values);
-    // Here you can implement the logic to send the form data to your backend or an email service.
+    try {
+      setLoading(true);
+      message.success("Message sent successfully");
+      formInstance.resetFields();
+    } catch (error) {
+      console.error(error);
+      message.error("Failed to send message");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -134,6 +144,7 @@ export const GetInTouch = () => {
                 htmlType="submit"
                 aria-label="submit"
                 type="primary"
+                loading={loading}
               >
                 Send Message
                 <motion.span
