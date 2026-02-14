@@ -9,18 +9,20 @@ import CBLogo from "../../../public/assets/experience/cb-logo.webp";
 import { Calendar, MapPin, ChevronRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
+
 const Experience = () => {
   const [isExpanded, setIsExpended] = useState(false);
+
   return (
-    <section className="mx-auto py-8  lg:py-20" id="experience">
+    <section className="mx-auto py-8  lg:py-20">
       <div className="flex flex-col gap-10">
         <div className="flex items-center flex-col gap-4">
           <FadeUp props={{ className: "gradient-text text-2xl font-bold" }}>
             My Journey
           </FadeUp>
 
-          <FadeUp props={{ className: "text-gray-400" }}>
-            Follow my professional story through the companies that shaped my
+          <FadeUp props={{ className: "text-gray-400 text-center" }}>
+            Follow my professional journey through the companies that shaped my
             career
           </FadeUp>
         </div>
@@ -30,10 +32,7 @@ const Experience = () => {
 
       <div className="mt-10">
         {EXPERIENCE?.map(
-          (
-            { points, position, company, description, duration, tech },
-            index,
-          ) => {
+          ({ points, position, company, description, tech }, index) => {
             return (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -41,7 +40,7 @@ const Experience = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.01, transition: { duration: 0.5 } }}
                 key={index}
-                className="border rounded-xl p-8 glass cursor-pointer relative"
+                className="border rounded-xl p-4 lg:p-8 glass cursor-pointer relative"
               >
                 <span
                   className={`w-6 h-6 text-cyan-400 absolute right-4  ${isExpanded ? "rotate-90" : ""} transition-transform`}
@@ -49,7 +48,7 @@ const Experience = () => {
                 >
                   <ChevronRight />
                 </span>
-                <Space align="start" size={16}>
+                <Space align="start" size={16} wrap>
                   <div className=" rounded-xl overflow-hidden  border-2 border-[#3c4042] relative ">
                     <Image
                       src={CBLogo}

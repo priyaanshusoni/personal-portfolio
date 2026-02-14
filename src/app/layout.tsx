@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/navbar/NavBar";
 import ScrollYProgress from "@/components/ui/ScrollYProgress";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import ConfigProviderWrapper from "@/components/ConfigProvider";

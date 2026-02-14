@@ -1,19 +1,30 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { HamburgerMenuIcon } from "../../public/svgs/navbar";
+import { HamburgerMenuIcon } from "../../../public/svgs/navbar";
 import Link from "next/link";
-
+import MobileDrawer from "./MobileDrawer";
+import { AnimatePresence } from "motion/react";
+import { NAV_ITEMS } from "@/lib/constants";
 const NavBar = () => {
-  const navItems = [
-    { name: "About", href: "/#about" },
-    { name: "Experience", href: "/experience" },
-    { name: "Projects", href: "/#projects" },
-    { name: "Blogs", href: "/blogs" },
-    { name: "Contact", href: "/#contact" },
-  ];
+  const [open, setOpen] = useState(false);
+  const onClose = () => {
+    setOpen(false);
+  };
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [open]);
 
   const underLineVariants = {
     initial: { width: 0 },
@@ -33,7 +44,7 @@ const NavBar = () => {
         }}
       >
         <motion.div className="flex justify-between items-center gap-4 md:gap-8  ">
-          {navItems.slice(0, 2).map((item, index) => (
+          {NAV_ITEMS.slice(0, 2).map((item, index) => (
             <motion.div
               key={item.name}
               className="text-gray-300 hover:text-white transition-colors relative group"
@@ -69,7 +80,7 @@ const NavBar = () => {
             <span className="gradient-text tracking-wider">ૐ</span>
           </motion.div>
 
-          {navItems.slice(2).map((item, index) => (
+          {NAV_ITEMS.slice(2).map((item, index) => (
             <motion.div
               key={item.name}
               className="text-gray-300 hover:text-white transition-colors relative group"
@@ -95,10 +106,17 @@ const NavBar = () => {
       {/* Mobile Navigation Menu */}
 
       <motion.div className="flex w-full px-[1rem] justify-end  items-center  md:hidden">
-        <motion.span className=" p-[0.625rem] glass rounded-full  ">
+        <motion.span
+          className=" p-[0.625rem] glass rounded-full  "
+          onClick={() => setOpen(true)}
+        >
           <HamburgerMenuIcon />
         </motion.span>
       </motion.div>
+
+      <AnimatePresence mode="wait">
+        {open && <MobileDrawer open={open} onClose={onClose} />}
+      </AnimatePresence>
     </motion.header>
   );
 };

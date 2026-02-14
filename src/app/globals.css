@@ -102,6 +102,12 @@ pre {
   box-shadow: none !important;
 }
 
+.ant-drawer-section {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  webkitbackdropfilter: none !important;
+}
+
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;

@@ -1,5 +1,13 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { CONTACT_FORM_TYPE, PROJECT_PROPS, EXPERIENCE_PROPS } from "./types";
+
+export const NAV_ITEMS = [
+  { name: "About", href: "/#about" },
+  { name: "Experience", href: "/experience" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Blogs", href: "/blogs" },
+  { name: "Contact", href: "/#contact" },
+];
 
 export const CONTACT_INFO = {
   email: {

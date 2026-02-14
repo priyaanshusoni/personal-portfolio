@@ -50,7 +50,7 @@ const Projects = () => {
                     transition={{ duration: 0.3 }}
                   />
 
-                  <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-50">
+                  <div className="absolute top-4 right-4 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-50">
                     {repoLink && (
                       <motion.a
                         href={repoLink}

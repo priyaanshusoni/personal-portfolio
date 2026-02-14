@@ -10,7 +10,7 @@ import { useState } from "react";
 export const GetInTouch = () => {
   const [loading, setLoading] = useState(false);
   const [formInstance] = Form.useForm();
-  const handleSubmit = (values: object) => {
+  const handleSubmit = () => {
     try {
       setLoading(true);
       message.success("Message sent successfully");
