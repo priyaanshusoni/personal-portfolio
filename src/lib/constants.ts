@@ -4,6 +4,7 @@ import { CONTACT_FORM_TYPE, PROJECT_PROPS, EXPERIENCE_PROPS } from "./types";
 export const NAV_ITEMS = [
   { name: "About", href: "/#about" },
   { name: "Experience", href: "/experience" },
+  { name: "Skills", href: "/skills" },
   { name: "Projects", href: "/#projects" },
   { name: "Blogs", href: "/blogs" },
   { name: "Contact", href: "/#contact" },

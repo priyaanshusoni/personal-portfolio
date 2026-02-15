@@ -1,25 +1,34 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "motion/react";
 
 const FloatingParticles = () => {
-  return [...Array(40)].map((_, i) => (
+  const particles = useMemo(() => {
+    return [...Array(50)].map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: 3 + Math.random() * 2,
+      delay: Math.random() * 2,
+    }));
+  }, []);
+
+  return particles.map((particle, i) => (
     <motion.div
       key={i}
-      className="absolute w-2 h-2 bg-cyan-400/30 rounded-full "
+      className="absolute w-2 h-2 bg-cyan-400/30 rounded-full"
       style={{
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
+        left: particle.left,
+        top: particle.top,
       }}
       animate={{
         y: [0, -30, 0],
         opacity: [0, 1, 0],
       }}
       transition={{
-        duration: 3 + Math.random() * 2,
+        duration: particle.duration,
         repeat: Infinity,
-        delay: Math.random() * 2,
+        delay: particle.delay,
         ease: "easeInOut",
       }}
     />
