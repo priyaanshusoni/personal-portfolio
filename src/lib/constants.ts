@@ -1,9 +1,15 @@
-import { Mail, MapPin } from "lucide-react";
-import { CONTACT_FORM_TYPE, PROJECT_PROPS, EXPERIENCE_PROPS } from "./types";
+import { Mail, MapPin, Code2, Wrench, Database, Cloud } from "lucide-react";
+import {
+  CONTACT_FORM_TYPE,
+  PROJECT_PROPS,
+  EXPERIENCE_PROPS,
+  SKILL_PROPS,
+} from "./types";
 
 export const NAV_ITEMS = [
   { name: "About", href: "/#about" },
   { name: "Experience", href: "/experience" },
+  { name: "Skills", href: "/skills" },
   { name: "Projects", href: "/#projects" },
   { name: "Blogs", href: "/blogs" },
   { name: "Contact", href: "/#contact" },
@@ -180,5 +186,53 @@ export const EXPERIENCE: EXPERIENCE_PROPS[] = [
       "AWS",
     ],
     logo: "/assets/experience/cb-logo.svg",
+  },
+];
+
+export const SKILLS: SKILL_PROPS[] = [
+  {
+    title: "Frontend Development",
+    icon: Code2,
+    skills: [
+      { name: "React" },
+      { name: "Next.js" },
+      { name: "TypeScript" },
+      { name: "Tailwind CSS" },
+      { name: "HTML5" },
+      { name: "CSS3" },
+    ],
+  },
+
+  {
+    title: "Backend Development",
+    icon: Database,
+    skills: [
+      { name: "Node.js" },
+      { name: "Express.js" },
+      { name: "PostgreSQL" },
+      { name: "MongoDB" },
+      { name: "GraphQL" },
+      { name: "REST APIs" },
+    ],
+  },
+  {
+    title: "Tools & Technologies",
+    icon: Wrench,
+    skills: [
+      { name: "Git" },
+      { name: "Docker" },
+      { name: "Webpack" },
+      { name: "Figma" },
+    ],
+  },
+  {
+    title: "Cloud & Deployment",
+    icon: Cloud,
+    skills: [
+      { name: "AWS" },
+      { name: "GCP" },
+      { name: "CI/CD" },
+      { name: "Nginx" },
+    ],
   },
 ];

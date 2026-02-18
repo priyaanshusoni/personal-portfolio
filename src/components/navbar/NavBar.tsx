@@ -44,7 +44,7 @@ const NavBar = () => {
         }}
       >
         <motion.div className="flex justify-between items-center gap-4 md:gap-8  ">
-          {NAV_ITEMS.slice(0, 2).map((item, index) => (
+          {NAV_ITEMS.slice(0, 3).map((item, index) => (
             <motion.div
               key={item.name}
               className="text-gray-300 hover:text-white transition-colors relative group"
@@ -80,7 +80,7 @@ const NavBar = () => {
             <span className="gradient-text tracking-wider">ૐ</span>
           </motion.div>
 
-          {NAV_ITEMS.slice(2).map((item, index) => (
+          {NAV_ITEMS.slice(3).map((item, index) => (
             <motion.div
               key={item.name}
               className="text-gray-300 hover:text-white transition-colors relative group"

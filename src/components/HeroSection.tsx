@@ -18,7 +18,10 @@ const FloatingParticles = dynamic(
 );
 
 const DecorativeSpinner = dynamic(
-  () => import("@/components/ui/DecorativeSpinner"),
+  () => import("@/components/ui/DecorativeSpinner"), {
+    ssr : false
+  }
+  
 );
 export default function HeroSection() {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
