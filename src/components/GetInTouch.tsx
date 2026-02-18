@@ -13,6 +13,7 @@ export const GetInTouch = () => {
   const handleSubmit = () => {
     try {
       setLoading(true);
+
       message.success("Message sent successfully");
       formInstance.resetFields();
     } catch (error) {
