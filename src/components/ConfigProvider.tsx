@@ -18,6 +18,10 @@ const ConfigProviderWrapper = ({ children }: { children: React.ReactNode }) => {
             colorPrimary: "#fff",
             colorTextPlaceholder: "#6a7282",
           },
+          Message: {
+            fontFamily: "var(--space-gortesk), sans-serif",
+            fontSize: 16,
+          },
         },
       }}
     >
