@@ -7,11 +7,20 @@ import { FORM_ITEMS } from "@/lib/constants";
 import { Send } from "lucide-react";
 
 import { useState } from "react";
+
 export const GetInTouch = () => {
   const [loading, setLoading] = useState(false);
   const [formInstance] = Form.useForm();
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     try {
+      const { name, email, message, subject } = formInstance.getFieldsValue();
+      const response = await fetch("/api/send", {
+        method: "POST",
+        body: JSON.stringify({ name, email, message, subject }),
+      });
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
       setLoading(true);
 
       message.success("Message sent successfully");
