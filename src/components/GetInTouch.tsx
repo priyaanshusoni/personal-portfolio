@@ -2,23 +2,32 @@
 
 import { CONTACT_INFO } from "@/lib/constants";
 import { motion } from "motion/react";
-import { Form, Input, Button, message } from "antd";
+import { Form, Input, Button, message as antMessage } from "antd";
 import { FORM_ITEMS } from "@/lib/constants";
 import { Send } from "lucide-react";
 
 import { useState } from "react";
+
 export const GetInTouch = () => {
   const [loading, setLoading] = useState(false);
   const [formInstance] = Form.useForm();
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     try {
+      const { name, email, message, subject } = formInstance.getFieldsValue();
+      const response = await fetch("/api/send", {
+        method: "POST",
+        body: JSON.stringify({ name, email, message, subject }),
+      });
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
       setLoading(true);
 
-      message.success("Message sent successfully");
+      antMessage.success("Message sent successfully");
       formInstance.resetFields();
     } catch (error) {
       console.error(error);
-      message.error("Failed to send message");
+      antMessage.error("Failed to send message");
     } finally {
       setLoading(false);
     }
@@ -116,7 +125,7 @@ export const GetInTouch = () => {
                   >
                     <Input.TextArea
                       maxLength={100}
-                      showCount
+                      // showCount
                       placeholder={item?.placeholder}
                       className="glass !w-full !px-4 !py-3 !bg-white/5 !border !border-white/10 !rounded-xl !text-white !placeholder-gray-500 !focus:outline-none !focus:border-cyan-500 !transition-colors"
                       rows={4}

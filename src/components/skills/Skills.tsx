@@ -18,15 +18,27 @@ const Skills = () => {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-1  lg:grid-cols-2 gap-10">
+      <div className="grid grid-cols-1  lg:grid-cols-2 gap-10 mb-20">
         {SKILLS.map((skill, index) => (
           <motion.div
+            initial={{
+              opacity: 0,
+              y: 40,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
             whileHover={{
               scale: 1.02,
             }}
             transition={{
               duration: 0.5,
               ease: "easeInOut",
+              delay: index * 0.1,
+            }}
+            viewport={{
+              once: true,
             }}
             className="cursor-pointer glass rounded-2xl  p-8 h-full relative group"
             key={index}
@@ -64,12 +76,30 @@ const Skills = () => {
 
             <div className="grid grid-cols-2 gap-4 mt-5">
               {skill?.skills?.map((skill, index) => (
-                <div
+                <motion.div
+                  initial={{
+                    y: 40,
+                    opacity: 0,
+                  }}
+                  whileInView={{
+                    y: 0,
+                    opacity: 1,
+                  }}
+                  transition={{
+                    duration: 0.3,
+                    delay: index * 0.2,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
                   className="glass rounded-xl p-4 cursor-pointer   flex flex-col gap-4 items-center justify-center"
                   key={index}
                 >
+                  <span className="w-8 h-8">
+                    {skill?.icon && <skill.icon />}
+                  </span>
                   <span className="text-gray-300">{skill?.name}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>

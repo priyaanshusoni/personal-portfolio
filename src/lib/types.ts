@@ -1,5 +1,6 @@
 import { Rule } from "antd/es/form";
 import { LucideIcon } from "lucide-react";
+import { JSX, ReactNode } from "react";
 
 export type CONTACT_FORM_TYPE = {
   name: string;
@@ -34,7 +35,7 @@ export interface EXPERIENCE_PROPS {
 
 type SKILL_ITEM = {
   name: string;
-  icon?: string;
+  icon?: React.ComponentType | string;
 };
 
 export interface SKILL_PROPS {
