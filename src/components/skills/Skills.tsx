@@ -95,10 +95,12 @@ const Skills = () => {
                   className="glass rounded-xl p-4 cursor-pointer   flex flex-col gap-4 items-center justify-center"
                   key={index}
                 >
-                  <span className="w-8 h-8">
+                  <span className="w-6 h-6 md:w-8 md:h-8">
                     {skill?.icon && <skill.icon />}
                   </span>
-                  <span className="text-gray-300">{skill?.name}</span>
+                  <span className="text-gray-300 text-sm md:text-base text-center">
+                    {skill?.name}
+                  </span>
                 </motion.div>
               ))}
             </div>
