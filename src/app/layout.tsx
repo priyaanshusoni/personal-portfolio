@@ -4,6 +4,7 @@ import NavBar from "@/components/navbar/NavBar";
 import ScrollYProgress from "@/components/ui/ScrollYProgress";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import ConfigProviderWrapper from "@/components/ConfigProvider";
+import Chatbot from "@/components/ui/Chatbot";
 import "./globals.css";
 
 const spaceGortesk = Space_Grotesk({
@@ -28,7 +29,11 @@ export default function RootLayout({
         <ScrollYProgress />
         <NavBar />
         <AntdRegistry>
-          <ConfigProviderWrapper>{children}</ConfigProviderWrapper>
+          <ConfigProviderWrapper>
+            {children}
+
+            <Chatbot />
+          </ConfigProviderWrapper>
         </AntdRegistry>
       </body>
     </html>
