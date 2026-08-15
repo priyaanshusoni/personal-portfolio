@@ -25,6 +25,7 @@ import {
   GraphQLIcon,
   PostmanIcon,
   CICDIcon,
+  DjangoIcon,
 } from "../../public/svgs/skills";
 
 export const NAV_ITEMS = [
@@ -103,35 +104,34 @@ export const FORM_ITEMS: CONTACT_FORM_TYPE[] = [
 
 export const PROJECTS: PROJECT_PROPS[] = [
   {
-    title: "CBXperts",
+    title: "Job Notifier",
     description:
-      "Built a modern, customer-facing website using Next.js and Tailwind CSS, focusing on clean UI, responsiveness,Implemented Razorpay payment integration to enable secure purchases and service onboarding through asmooth checkout flow.",
-    image: "/assets/projects/CBXperts.webp",
-    link: "https://createbytes.com/cbxperts",
+      "Programmed a job notification automation bot using Express.js, Prisma, PostgreSQL, and JSearch API that continuously monitors, filters, and delivers personalized job alerts, significantly reducing manual search effort and accelerating role discovery.",
+    link: "https://job-notifier-fe.onrender.com/signup",
     technologies: [
       {
-        icon: "nextjs",
-        label: "Next.js",
+        icon: "expressjs",
+        label: "Express.js",
       },
 
       {
-        icon: "tailwindcss",
-        label: "Tailwind CSS",
+        icon: "prisma",
+        label: "Prisma",
       },
 
       {
-        label: "Razorpay SDK",
+        label: "PostgreSQL",
       },
       {
-        icon: "gcloud",
-        label: "GCP",
+        icon: "jsearch",
+        label: "JSearch API",
       },
       {
         icon: "nodejs",
         label: "Node.js",
       },
       {
-        label: "Strapi v5",
+        label: "Gemini SDK",
       },
     ],
   },
@@ -140,7 +140,6 @@ export const PROJECTS: PROJECT_PROPS[] = [
     title: "YugYog AI",
     description:
       "Led the front-end development of a cutting-edge AI-powered CCTV Camera Survellience",
-    image: "/assets/projects/YugYog-AI.webp",
     link: "https://yugyog.ai/",
     technologies: [
       {
@@ -178,7 +177,6 @@ export const PROJECTS: PROJECT_PROPS[] = [
         label: "MongoDB",
       },
     ],
-    image: "/assets/projects/CodeCupid.webp",
     repoLink: "https://github.com/priyaanshusoni/CodeCupid",
   },
 ];
@@ -233,6 +231,7 @@ export const SKILLS: SKILL_PROPS[] = [
       { name: "MongoDB", icon: MongoDBIcon },
       { name: "GraphQL", icon: GraphQLIcon },
       { name: "REST APIs", icon: PostmanIcon },
+      { name: "Django & DRF", icon: DjangoIcon },
     ],
   },
   {
