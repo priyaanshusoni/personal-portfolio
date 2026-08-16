@@ -13,7 +13,6 @@ export type CONTACT_FORM_TYPE = {
 export interface PROJECT_PROPS {
   title: string;
   description: string;
-  image: string;
   link?: string;
   repoLink?: string;
   technologies: {

@@ -67,7 +67,7 @@ export default function HeroSection() {
 
     {
       src: YouTubeIcon,
-      href: "https://www.youtube.com/@priyanshusoni9/videos",
+      href: "https://www.youtube.com/@priyaanshusoni1/videos",
       label: "YouTube",
     },
   ];
