@@ -1,0 +1,44 @@
+name: Deploy Portfolio to VM
+
+on:
+  push:
+    branches:
+      - master
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.2
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script_stop: true
+          script: |
+            set -e
+            cd ${{ secrets.DEPLOY_PATH }}
+
+            if [ -s "$HOME/.nvm/nvm.sh" ]; then
+              . "$HOME/.nvm/nvm.sh"
+            fi
+
+            git fetch origin master
+            git reset --hard origin/master
+
+            npm ci
+            npm run build
+
+            if pm2 describe personal-portfolio >/dev/null 2>&1; then
+              pm2 restart personal-portfolio --update-env
+            else
+              pm2 start npm --name personal-portfolio -- start
+            fi
+
+            pm2 save
