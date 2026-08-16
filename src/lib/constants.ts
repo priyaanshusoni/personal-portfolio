@@ -26,6 +26,7 @@ import {
   PostmanIcon,
   CICDIcon,
   DjangoIcon,
+  PrismaIcon,
 } from "../../public/svgs/skills";
 
 export const NAV_ITEMS = [
@@ -210,6 +211,20 @@ export const EXPERIENCE: EXPERIENCE_PROPS[] = [
 
 export const SKILLS: SKILL_PROPS[] = [
   {
+    title: "Backend Development",
+    icon: Database,
+    skills: [
+      { name: "Node.js", icon: NodeJsIcon },
+      { name: "Express.js", icon: ExpressIcon },
+      { name: "PostgreSQL", icon: PostgresIcon },
+      { name: "MongoDB", icon: MongoDBIcon },
+      { name: "GraphQL", icon: GraphQLIcon },
+      { name: "REST APIs", icon: PostmanIcon },
+      { name: "Django & DRF", icon: DjangoIcon },
+      { name: "Prisma", icon: PrismaIcon },
+    ],
+  },
+  {
     title: "Frontend Development",
     icon: Code2,
     skills: [
@@ -221,19 +236,6 @@ export const SKILLS: SKILL_PROPS[] = [
     ],
   },
 
-  {
-    title: "Backend Development",
-    icon: Database,
-    skills: [
-      { name: "Node.js", icon: NodeJsIcon },
-      { name: "Express.js", icon: ExpressIcon },
-      { name: "PostgreSQL", icon: PostgresIcon },
-      { name: "MongoDB", icon: MongoDBIcon },
-      { name: "GraphQL", icon: GraphQLIcon },
-      { name: "REST APIs", icon: PostmanIcon },
-      { name: "Django & DRF", icon: DjangoIcon },
-    ],
-  },
   {
     title: "Tools & Technologies",
     icon: Wrench,
